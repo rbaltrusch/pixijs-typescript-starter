@@ -1,4 +1,4 @@
-import { Application, Container, Sprite } from 'pixi.js';
+import { Application, Container, Sprite, Assets } from 'pixi.js';
 
 export class HelloWorld extends Container {
     app: Application;
@@ -8,12 +8,10 @@ export class HelloWorld extends Container {
     constructor(app: Application) {
         super();
         this.app = app;
-        this.state = { velocity: { x: 1, y: 1 } };
+        this.state = { velocity: { x: 10, y: 1 } };
         this.update = this.update.bind(this);
 
-        this.sprite = new Sprite(
-            app.loader.resources['assets/hello-world.png'].texture
-        );
+        this.sprite = Sprite.from('assets/hello-world.png');
         this.sprite.x = window.innerWidth / 2 - this.sprite.width / 2;
         this.sprite.y = window.innerHeight / 2 - this.sprite.height / 2;
         this.addChild(this.sprite);
@@ -28,7 +26,7 @@ export class HelloWorld extends Container {
         app.ticker.add(this.update);
     }
 
-    update(_: any, delta: number) {
+    update() {
         if (
             this.sprite.x <= 0 ||
             this.sprite.x >= window.innerWidth - this.sprite.width
