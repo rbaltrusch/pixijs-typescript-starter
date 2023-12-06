@@ -20,6 +20,8 @@ This setup is supposed to be used with VS Code, as configuration is provided so 
 npm install
 ```
 
+Run build with `npm run build`.
+
 ## Development
 
 Launch the `Complete development` launch configuration.
