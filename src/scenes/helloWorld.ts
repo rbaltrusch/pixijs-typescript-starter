@@ -8,7 +8,7 @@ export class HelloWorld extends Container {
     constructor(app: Application) {
         super();
         this.app = app;
-        this.state = { velocity: { x: 10, y: 1 } };
+        this.state = { velocity: { x: 1, y: 1 } };
         this.update = this.update.bind(this);
 
         this.sprite = Sprite.from('assets/hello-world.png');

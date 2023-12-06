@@ -40,11 +40,19 @@ module.exports = {
     ],
     devServer: {
         // webpack-dev-server configuration
-        contentBase: path.join(__dirname, 'dist'),
+        static: path.join(__dirname, 'dist'),
         // keep port in sync with VS Code launch.json
         port: 3000,
         // Hot-reloading, the sole reason to use webpack here <3
         hot: true,
-        writeToDisk: true,
+        devMiddleware: {
+            writeToDisk: true,
+        },
     },
+    ignoreWarnings: [
+        {
+            module: /bundle.js/,
+            message: /size\slimit/
+        },
+    ]
 }
